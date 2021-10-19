@@ -11,6 +11,7 @@ setuptools = "*"
 wheel = "*"
 flask = "*"
 python-dotenv = "*"
+gunicorn = "*"
 
 [dev-packages]
 
