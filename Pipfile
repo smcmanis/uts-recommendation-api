@@ -4,19 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-requests = "*"
 beautifulsoup4 = "*"
 pymongo = {extras = ["srv"], version = "*"}
-spacy = "*"
-textacy = "*"
-sklearn = "*"
 pandas = "*"
-nltk = "*"
-names = "*"
 setuptools = "*"
 wheel = "*"
 flask = "*"
-torch = "*"
 python-dotenv = "*"
 
 [dev-packages]
