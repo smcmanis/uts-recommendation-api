@@ -6,9 +6,11 @@ from models import content_based #, rating
 
 myapp = Flask(__name__)
 
+recommender = content_based.Recommender()
+
 @myapp.route('/recommend/<user_id>')
 def get_recommendations(user_id):
-    recommendations = content_based.get_student_recommendation(user_id)
+    recommendations = recommender.get_student_recommendation(user_id)
     # Subject recommendations by comparing user with similar users
     # recommendations = kNN.collaborativeFilter.predictUser(user_id)
     # if not recommendations:
@@ -19,5 +21,9 @@ def get_recommendations(user_id):
     #     recommendations.extend(kNN.contenSUmularity.get_similar_popular_subjects(user_id))
 
     # recommendations = 
-    return jsonify(content_based.get_student_recommendation(user_id))
+    return jsonify(recommendations)
     
+myapp.run(
+    port=8000,
+    debug=True
+)
