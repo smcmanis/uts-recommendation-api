@@ -52,10 +52,6 @@ def cosine_similarity(a, b):
 def interest_similarities(student, subjects):
     return [(subject.code, cosine_similarity(student.interest_vector, subject.topic_vector)) for subject in subjects]
 
-def get_load_static_resources():
-    subject_topic_tfidfs = pd.read_pickle('data/selected_topic_keyword_scores.pkl')
-    subject_topic_tfidfs.index = subject_topic_tfidfs.index.map(str)
-    return
 class Recommender:
     def __init__(self):
         self.subject_topic_tfidfs = pd.read_pickle('data/selected_topic_keyword_scores.pkl')
