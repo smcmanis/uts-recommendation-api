@@ -4,8 +4,22 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+requests = "*"
+beautifulsoup4 = "*"
+pymongo = {extras = ["srv"], version = "*"}
+spacy = "*"
+textacy = "*"
+sklearn = "*"
+pandas = "*"
+nltk = "*"
+names = "*"
+setuptools = "*"
+wheel = "*"
+pythonnet = "*"
 flask = "*"
 flask-restful = "*"
+torch = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
