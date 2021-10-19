@@ -23,7 +23,7 @@ def get_recommendations(user_id):
     # recommendations = 
     return jsonify(recommendations)
     
-myapp.run(
-    port=8000,
-    debug=True
-)
+# myapp.run(
+#     port=8000,
+#     debug=True
+# )
