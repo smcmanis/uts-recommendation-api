@@ -1,1 +1,1 @@
-web: gunicorn "app:create_app()"
+web: pipenv & gunicorn "app:create_app()"
