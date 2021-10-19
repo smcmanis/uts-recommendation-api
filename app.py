@@ -22,3 +22,4 @@ def create_app():
         # recommendations = 
         return jsonify(content_based.get_student_recommendation(user_id))
     
+app = create_app()
