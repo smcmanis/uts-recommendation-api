@@ -1,1 +1,1 @@
-web: pipenv shell & python app.py
+web: gunicorn "app:create_app()"
