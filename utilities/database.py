@@ -22,6 +22,6 @@ def get_subjects():
 def get_topics():
     client = MongoClient(MONGO_URI)
     db = client[DATABASE]
-    return [topic for topic in db.keyword_subject_scores.find()]
+    return [topic for topic in db.interests.find()]
 
 
