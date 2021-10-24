@@ -62,9 +62,15 @@ class Recommender:
         self.user_preferences = {pref['studentId']: pref for pref in db.get_user_preferences()}
         self.student_ids = [s['id'] for s in db.get_students()]
         self.students = {id: Student(self.user_preferences.get(id,{}), [cs for cs in self.completed_subjects if cs['UserId']==id], self.topics) for id in self.student_ids}
-            
+    
+    def get_similar_subjects(self):
+        return [s.code for s in self.subjects]
+
     def get_student_recommendation(self, student_id):
         recommendations = []
+        if student_id not in self.student_ids:
+            return recommendations      
+    
         # with open('data/selected_topic_keywords.csv', 'r') as f:
             # topics = [line.strip('\n').strip() for line in f.readlines()]
 
