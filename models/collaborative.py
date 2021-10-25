@@ -18,7 +18,7 @@ class RatingsModel:
     if dataset_label == 'TRAIN':
       try:          
         data = Dataset.load_from_file("data/ratings-model-features.csv", reader=reader)
-        # self.train = Dataset.load_from_file(self.TRAIN_PATH, reader=reader))
+
         self.data = data
         self.trainset = data.build_full_trainset()
         self.subjects = list(set([x[1] for x in self.trainset.build_testset()]))
@@ -26,17 +26,13 @@ class RatingsModel:
       except:
         print('failed to load train data')
     elif dataset_label == 'LIVE':
-      # try:          
-      data = Dataset.load_from_file("data/ratings-model-features.csv", reader=reader)
-      # self.subjects = list(set([x[1] for x in data.build_full_trainset()()]))
-      # self.users = list(set([x[0] for x in self.data.build_full_trainset()]))
-      # except:
-      #   print("failed to load test data")      
+      try:          
+        data = Dataset.load_from_file("data/ratings-model-features.csv", reader=reader)
+      except:
+        print("failed to load test data")      
 
   def predict_ratings_for_all_users(self, user_id):
     self.load_ratings('LIVE')
-    # if user_id not in self.users:
-    #   return ["poo"]
 
     predictions = [self.model.predict(user_id, subject_id, 1) for subject_id in self.subjects]
     top_k_predictions = self.get_top_predictions(predictions, self.K)
