@@ -1,13 +1,13 @@
+from pymongo.message import update
 from utilities import database as db
-import json
 import pandas as pd
 
 
 class Student:
     def __init__(self, prefs, completed_subjects, topics):
-        self.id = prefs['studentId']
+        self.id = prefs.get('studentId',{})
         self.preferences = {pref: value for pref,value in prefs.items() if pref != "interests"}
-        self.interests = prefs['interests']
+        self.interests = prefs.get('interests',[])
         self.interest_vector = [int(topic in self.interests) for topic in topics]
         self.degree = prefs.get('degree', 'none') 
         self.major = prefs.get('major', 'none')
@@ -27,6 +27,8 @@ class kNNStudentSubject:
     
     def get_neighbours(self, student_id):
         student = self.students[student_id]
+        print(student.completed_subjects)
+        print(student.interests)
         interest_scores = interest_similarities(student.interest_vector, self.subjects)
         nearest_k = sorted(interest_scores, key=lambda x: x[1], reverse=True)[:self.k]
         return nearest_k
@@ -59,33 +61,45 @@ class Recommender:
         self.subjects =  [Subject(subject, self.tfidfs) for subject in db.get_subjects()]
         self.topics = [topic['name'] for topic in db.get_topics()]
         self.completed_subjects = db.get_completed_subjects()
-        self.user_preferences = {pref['studentId']: pref for pref in db.get_user_preferences()}
+        user_ids = db.get_users()
         self.student_ids = [s['id'] for s in db.get_students()]
+        self.student_ids.extend(user_ids)
+        self.user_preferences = {pref['studentId']: pref for pref in db.get_user_preferences()}
+        print(self.user_preferences['13273748'])
+        for id in user_ids: 
+            self.user_preferences[id] = self.user_preferences.get(id,{})
         self.students = {id: Student(self.user_preferences.get(id,{}), [cs for cs in self.completed_subjects if cs['UserId']==id], self.topics) for id in self.student_ids}
     
     def get_similar_subjects(self):
         return [s.code for s in self.subjects[:5]]
 
-    def get_student_recommendation(self, student_id):
-        recommendations = []
-        if student_id not in self.student_ids:
-            return recommendations      
-    
-        # with open('data/selected_topic_keywords.csv', 'r') as f:
-            # topics = [line.strip('\n').strip() for line in f.readlines()]
-
-            # with open('data/topic_tfidfs.json', 'r') as f:
-            #     compact_tfidf = json.load(f)
+    def update_students(self, student_id):
+        if student_id in db.get_users():
+            print("poo")
+            self.student_ids.append(student_id)
+            prefs = {}
+            for pref in db.get_user_preferences():
+                if pref['studentId'] == student_id:
+                    prefs = pref
+            self.user_preferences[student_id] = prefs
+            subjects = []
+            for cs in db.get_completed_subjects():
+                if cs['UserId'] == student_id:
+                    subjects.append(cs)
+            self.students[student_id] = Student(prefs,cs,[])
+        else:
+            print(db.get_users())
             
-
-            # subject_topic_tfidfs = pd.read_pickle('data/selected_topic_keyword_scores.pkl')
-            # subject_topic_tfidfs.index = subject_topic_tfidfs.index.map(str)
-
-            # degrees = db.get_degrees()
+    def get_student_recommendation(self, student_id):
+        if student_id not in self.student_ids:
+            self.update_students(student_id)
+            if student_id not in self.student_ids:
+                print(student_id)
+                return []
 
         kNN_student_subject = kNNStudentSubject(self.students, self.subjects, self.topics, self.tfidfs)
         neighbours = kNN_student_subject.get_neighbours(student_id)
 
         result = [code for (code,score) in neighbours]
         print(result)
-        return result[:min(5, len(neighbours))]  
+        return result[:min(10, len(neighbours))]  

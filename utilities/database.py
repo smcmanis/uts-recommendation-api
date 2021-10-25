@@ -13,7 +13,12 @@ def get_degrees():
 def get_students():
     client = MongoClient(MONGO_URI)
     db = client[DATABASE]
-    return [student for student in db.students.find()]
+    return [s for s in db.students.find()]
+
+def get_users():
+    client = MongoClient(MONGO_URI)
+    db = client[DATABASE]
+    return [user['studentId'] for user in db.Users.find()]
 
 def get_user_preferences():
     client = MongoClient(MONGO_URI)

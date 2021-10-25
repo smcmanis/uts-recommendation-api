@@ -12,6 +12,7 @@ wheel = "*"
 flask = "*"
 python-dotenv = "*"
 gunicorn = "*"
+surprise = "*"
 
 [dev-packages]
 
