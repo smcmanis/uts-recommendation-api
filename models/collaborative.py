@@ -1,5 +1,4 @@
 from collections import defaultdict
-from os import unlink
 from surprise import Dataset, Reader
 from surprise.model_selection import train_test_split
 from surprise.prediction_algorithms import knns
@@ -56,3 +55,13 @@ class RatingsModel:
   def train_model(self):
     self.load_ratings('TRAIN')
     self.model.fit(self.trainset)
+
+  def get_popular_subjects(self):
+    user_ratings = defaultdict(list)
+    for user_rating in self.trainset.build_testset():
+      user_ratings[user_rating[1]].append(user_rating[2])
+    subject_rating_averages = [(subject, (sum(ratings)/len(ratings))) for subject,ratings in user_ratings.items()]
+    subject_rating_averages.sort(key=lambda x: x[1], reverse=True)
+    print(subject_rating_averages)
+    return [subject for (subject,rating) in subject_rating_averages[:20] if rating > 5]
+    

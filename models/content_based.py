@@ -96,6 +96,8 @@ class Recommender:
             if student_id not in self.student_ids:
                 print(student_id)
                 return []
+        if not self.user_preferences[student_id]['interests']:
+            return []
 
         kNN_student_subject = kNNStudentSubject(self.students, self.subjects, self.topics, self.tfidfs)
         neighbours = kNN_student_subject.get_neighbours(student_id)

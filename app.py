@@ -25,15 +25,10 @@ def get_recommendations(user_id):
     print(recommendations)
     # Add popular subjects if required
     if len(recommendations) < 20:
-        recommendations.extend(recommender.get_popular_subjects())
+        recommendations.extend(ratings_based_recommender.get_popular_subjects())
 
     return jsonify(recommendations)
     
-
-# @myapp.route('/recommend/oi/<user_id>')
-# def get_rec(user_id):
-#     print(ratings_based_recommender.predict_ratings_for_all_users(user_id))
-#     return jsonify(ratings_based_recommender.predict_ratings_for_all_users(user_id))
 
 def build_user_ratings_file():
     from utilities import database as db
