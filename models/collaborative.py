@@ -30,13 +30,16 @@ class RatingsModel:
       except:
         print("failed to load test data")      
 
-  def predict_ratings_for_all_users(self, user_id):
+  def predict_ratings_for_all_users(self, user_id, subjects=[]):
     self.load_ratings('LIVE')
+    if not subjects:
+      subjects = self.subjects
+    predictions = [self.model.predict(user_id, subject_id, 1) for subject_id in subjects]
 
-    predictions = [self.model.predict(user_id, subject_id, 1) for subject_id in self.subjects]
+    # predictions = [self.model.predict(user_id, subject_id, 1) for subject_id in self.subjects]
     top_k_predictions = self.get_top_predictions(predictions, self.K)
     # return top_k_predictions[user_id]
-    return [s[0] for s in top_k_predictions[user_id]]
+    return [s[0] for s in top_k_predictions[user_id]][:10]
 
   def get_top_predictions(self, predictions, K=10):
     user_mapped_preds = defaultdict(list)
@@ -56,12 +59,17 @@ class RatingsModel:
     self.load_ratings('TRAIN')
     self.model.fit(self.trainset)
 
-  def get_popular_subjects(self):
+  def get_popular_subjects(self, student_id):
+    exclude = []
     user_ratings = defaultdict(list)
     for user_rating in self.trainset.build_testset():
       user_ratings[user_rating[1]].append(user_rating[2])
+      if user_rating[0] == student_id:
+        exclude.append(user_rating[1])
     subject_rating_averages = [(subject, (sum(ratings)/len(ratings))) for subject,ratings in user_ratings.items()]
     subject_rating_averages.sort(key=lambda x: x[1], reverse=True)
-    print(subject_rating_averages)
-    return [subject for (subject,rating) in subject_rating_averages[:20] if rating > 5]
+    popular = [subject for (subject,rating) in 
+      subject_rating_averages if rating > 2 and subject not in exclude]
+    print(popular)
+    return popular
     

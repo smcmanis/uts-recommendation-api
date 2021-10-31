@@ -1,3 +1,5 @@
+from collections import defaultdict
+from flask import sessions
 from pymongo.message import update
 from utilities import database as db
 import pandas as pd
@@ -27,9 +29,8 @@ class kNNStudentSubject:
     
     def get_neighbours(self, student_id):
         student = self.students[student_id]
-        print(student.completed_subjects)
-        print(student.interests)
         interest_scores = interest_similarities(student.interest_vector, self.subjects)
+        interest_scores = [score for score in interest_scores if score[1] not in student.completed_subjects]
         nearest_k = sorted(interest_scores, key=lambda x: x[1], reverse=True)[:self.k]
         return nearest_k
 
@@ -58,50 +59,48 @@ class Recommender:
     def __init__(self):
         self.tfidfs = pd.read_pickle('data/selected_topic_keyword_scores.pkl')
         self.tfidfs.index = self.tfidfs.index.map(str)
-        self.subjects =  [Subject(subject, self.tfidfs) for subject in db.get_subjects()]
+        self.subjects =  [Subject(subject, self.tfidfs) for subject in db.get_subjects() if subject['Availability']]
         self.topics = [topic['name'] for topic in db.get_topics()]
         self.completed_subjects = db.get_completed_subjects()
         user_ids = db.get_users()
         self.student_ids = [s['id'] for s in db.get_students()]
         self.student_ids.extend(user_ids)
         self.user_preferences = {pref['studentId']: pref for pref in db.get_user_preferences()}
-        print(self.user_preferences['13273748'])
         for id in user_ids: 
             self.user_preferences[id] = self.user_preferences.get(id,{})
-        self.students = {id: Student(self.user_preferences.get(id,{}), [cs for cs in self.completed_subjects if cs['UserId']==id], self.topics) for id in self.student_ids}
-    
-    def get_similar_subjects(self):
-        return [s.code for s in self.subjects[:5]]
+        self.students = {id: Student(self.user_preferences.get(id,{}), [cs for cs in self.completed_subjects if cs.get('UserId','')==id], self.topics) for id in self.student_ids}
 
     def update_students(self, student_id):
-        if student_id in db.get_users():
-            print("poo")
-            self.student_ids.append(student_id)
-            prefs = {}
-            for pref in db.get_user_preferences():
-                if pref['studentId'] == student_id:
-                    prefs = pref
-            self.user_preferences[student_id] = prefs
-            subjects = []
-            for cs in db.get_completed_subjects():
-                if cs['UserId'] == student_id:
-                    subjects.append(cs)
-            self.students[student_id] = Student(prefs,cs,[])
-        else:
-            print(db.get_users())
-            
-    def get_student_recommendation(self, student_id):
-        if student_id not in self.student_ids:
-            self.update_students(student_id)
+        for student_id in db.get_users():
             if student_id not in self.student_ids:
-                print(student_id)
-                return []
-        if not self.user_preferences[student_id]['interests']:
+                self.student_ids.append(student_id)
+        prefs = {}
+        for pref in db.get_user_preferences():
+            if pref['studentId'] == student_id:
+                prefs = pref
+        self.user_preferences[student_id] = prefs
+        subjects = []
+        for cs in db.get_completed_subjects():
+            if cs['UserId'] == student_id:
+                subjects.append(cs)
+        self.students[student_id] = Student(prefs,cs,[])
+        
+            
+    def get_student_recommendation(self, student_id, subjects=[]):
+        subjects_to_recommend = self.subjects
+        if len(subjects) > 0:
+            subjects_to_recommend = [sub for sub in self.subjects if sub.code in subjects]
+            print(len(subjects_to_recommend))
+    
+        if student_id not in self.student_ids and student_id in ["13604412","13571854", "13273747","13223894"]:
+            self.student_ids.append(student_id)
+
+        if student_id not in self.user_preferences or not self.user_preferences[student_id].get('interests',None):
             return []
 
-        kNN_student_subject = kNNStudentSubject(self.students, self.subjects, self.topics, self.tfidfs)
+        kNN_student_subject = kNNStudentSubject(self.students, subjects_to_recommend, self.topics, self.tfidfs)
         neighbours = kNN_student_subject.get_neighbours(student_id)
 
         result = [code for (code,score) in neighbours]
-        print(result)
-        return result[:min(10, len(neighbours))]  
+        result = result          
+        return result
