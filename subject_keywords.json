@@ -1,0 +1,869 @@
+[
+  {
+    "subjectCode": "41027",
+    "keywords": [
+      "agile",
+      "decision making",
+      "entrepreneurship",
+      "leadership",
+      "management",
+      "project management",
+      "projects",
+      "relationships",
+      "styles"
+    ]
+  },
+  {
+    "subjectCode": "41092",
+    "keywords": [
+      "algorithms",
+      "computer",
+      "history",
+      "internet",
+      "ip",
+      "network",
+      "networks",
+      "plane",
+      "protocol",
+      "routing",
+      "tcp",
+      "transport",
+      "web"
+    ]
+  },
+  {
+    "subjectCode": "48033",
+    "keywords": [
+      "analytics",
+      "iot"
+    ]
+  },
+  {
+    "subjectCode": "31263",
+    "keywords": [
+      "animation",
+      "audio"
+    ]
+  },
+  {
+    "subjectCode": "41091",
+    "keywords": [
+      "architecture",
+      "infrastructure",
+      "lifecycle",
+      "python"
+    ]
+  },
+  {
+    "subjectCode": "48430",
+    "keywords": [
+      "arrays",
+      "operators"
+    ]
+  },
+  {
+    "subjectCode": "41012",
+    "keywords": [
+      "art",
+      "code",
+      "communication",
+      "data",
+      "documentation",
+      "error",
+      "inheritance",
+      "inheritance polymorphism",
+      "libraries",
+      "memory",
+      "object oriented",
+      "polymorphism",
+      "programming",
+      "robotics",
+      "software",
+      "structures",
+      "time"
+    ]
+  },
+  {
+    "subjectCode": "42723",
+    "keywords": [
+      "assembly"
+    ]
+  },
+  {
+    "subjectCode": "41162",
+    "keywords": [
+      "biomedical",
+      "signals",
+      "wireless"
+    ]
+  },
+  {
+    "subjectCode": "41035",
+    "keywords": [
+      "building",
+      "ethics",
+      "market"
+    ]
+  },
+  {
+    "subjectCode": "48389",
+    "keywords": [
+      "buildings",
+      "design modelling"
+    ]
+  },
+  {
+    "subjectCode": "41051",
+    "keywords": [
+      "business",
+      "factors"
+    ]
+  },
+  {
+    "subjectCode": "42044",
+    "keywords": [
+      "camera",
+      "machine learning",
+      "optimisation",
+      "planning control"
+    ]
+  },
+  {
+    "subjectCode": "41034",
+    "keywords": [
+      "chemical",
+      "electronics",
+      "fabrication",
+      "logic",
+      "real life",
+      "reliability",
+      "sensitivity"
+    ]
+  },
+  {
+    "subjectCode": "42092",
+    "keywords": [
+      "circuits",
+      "vector"
+    ]
+  },
+  {
+    "subjectCode": "42011",
+    "keywords": [
+      "classification",
+      "industries",
+      "mining",
+      "policy",
+      "trade",
+      "waste",
+      "wastewater"
+    ]
+  },
+  {
+    "subjectCode": "42035",
+    "keywords": [
+      "cloud computing",
+      "governance",
+      "privacy",
+      "risk management",
+      "security"
+    ]
+  },
+  {
+    "subjectCode": "41090",
+    "keywords": [
+      "coding",
+      "compression",
+      "frequency"
+    ]
+  },
+  {
+    "subjectCode": "41083",
+    "keywords": [
+      "collaboration",
+      "planning management"
+    ]
+  },
+  {
+    "subjectCode": "49004",
+    "keywords": [
+      "complexity"
+    ]
+  },
+  {
+    "subjectCode": "42826",
+    "keywords": [
+      "complex systems"
+    ]
+  },
+  {
+    "subjectCode": "41044",
+    "keywords": [
+      "computational",
+      "computing",
+      "matlab",
+      "visualisation"
+    ]
+  },
+  {
+    "subjectCode": "48340",
+    "keywords": [
+      "concrete",
+      "production"
+    ]
+  },
+  {
+    "subjectCode": "41113",
+    "keywords": [
+      "configuration management",
+      "development agile",
+      "management source",
+      "process configuration",
+      "reflective design"
+    ]
+  },
+  {
+    "subjectCode": "48321",
+    "keywords": [
+      "conservation",
+      "force",
+      "shear",
+      "statics"
+    ]
+  },
+  {
+    "subjectCode": "42012",
+    "keywords": [
+      "constraints",
+      "maintenance",
+      "monitoring",
+      "political",
+      "pollution",
+      "problem solving",
+      "report writing",
+      "sustainability",
+      "sustainable",
+      "systems thinking",
+      "water",
+      "writing"
+    ]
+  },
+  {
+    "subjectCode": "41095",
+    "keywords": [
+      "construction",
+      "construction development",
+      "development testing",
+      "elicitation analysis",
+      "engineering environments",
+      "management risk",
+      "process requirements",
+      "requirements elicitation",
+      "software engineering"
+    ]
+  },
+  {
+    "subjectCode": "41029",
+    "keywords": [
+      "contemporary",
+      "research"
+    ]
+  },
+  {
+    "subjectCode": "41099",
+    "keywords": [
+      "controllers",
+      "dc",
+      "diagrams",
+      "electrical",
+      "law",
+      "laws",
+      "loop",
+      "switches"
+    ]
+  },
+  {
+    "subjectCode": "42091",
+    "keywords": [
+      "conversion",
+      "energy conversion",
+      "machines",
+      "power"
+    ]
+  },
+  {
+    "subjectCode": "48620",
+    "keywords": [
+      "coordinate systems",
+      "vectors"
+    ]
+  },
+  {
+    "subjectCode": "48730",
+    "keywords": [
+      "cyber security",
+      "intelligence",
+      "intrusion detection"
+    ]
+  },
+  {
+    "subjectCode": "41182",
+    "keywords": [
+      "cyberspace",
+      "database"
+    ]
+  },
+  {
+    "subjectCode": "48436",
+    "keywords": [
+      "data acquisition",
+      "graphics",
+      "ios",
+      "legal",
+      "model building",
+      "tcp ip"
+    ]
+  },
+  {
+    "subjectCode": "41004",
+    "keywords": [
+      "data analytics"
+    ]
+  },
+  {
+    "subjectCode": "42908",
+    "keywords": [
+      "data collection"
+    ]
+  },
+  {
+    "subjectCode": "42097",
+    "keywords": [
+      "data comparing"
+    ]
+  },
+  {
+    "subjectCode": "420047",
+    "keywords": [
+      "data visualization"
+    ]
+  },
+  {
+    "subjectCode": "48240",
+    "keywords": [
+      "decisions",
+      "uncertainty"
+    ]
+  },
+  {
+    "subjectCode": "42028",
+    "keywords": [
+      "deep learning"
+    ]
+  },
+  {
+    "subjectCode": "48661",
+    "keywords": [
+      "design analysis"
+    ]
+  },
+  {
+    "subjectCode": "41117",
+    "keywords": [
+      "design operation",
+      "heat transfer",
+      "mass",
+      "mass energy",
+      "momentum",
+      "thermodynamics"
+    ]
+  },
+  {
+    "subjectCode": "41098",
+    "keywords": [
+      "design practice",
+      "unit",
+      "version control"
+    ]
+  },
+  {
+    "subjectCode": "41163",
+    "keywords": [
+      "design skills",
+      "hardware",
+      "innovation process"
+    ]
+  },
+  {
+    "subjectCode": "41023",
+    "keywords": [
+      "design thinking",
+      "economics",
+      "engineers",
+      "global",
+      "innovation",
+      "products services",
+      "prototyping",
+      "technology",
+      "trends"
+    ]
+  },
+  {
+    "subjectCode": "41014",
+    "keywords": [
+      "discrete",
+      "sensors",
+      "space"
+    ]
+  },
+  {
+    "subjectCode": "41013",
+    "keywords": [
+      "dynamics",
+      "ethical considerations",
+      "industrial",
+      "kinematics",
+      "mobile",
+      "motion",
+      "safety"
+    ]
+  },
+  {
+    "subjectCode": "42094",
+    "keywords": [
+      "efficiency",
+      "voltage"
+    ]
+  },
+  {
+    "subjectCode": "42020",
+    "keywords": [
+      "elements"
+    ]
+  },
+  {
+    "subjectCode": "48434",
+    "keywords": [
+      "embedded",
+      "interface",
+      "language",
+      "reading",
+      "software development"
+    ]
+  },
+  {
+    "subjectCode": "41009",
+    "keywords": [
+      "energy",
+      "engineering",
+      "heat",
+      "policies",
+      "system design",
+      "systems",
+      "wind"
+    ]
+  },
+  {
+    "subjectCode": "49307",
+    "keywords": [
+      "engine"
+    ]
+  },
+  {
+    "subjectCode": "42036",
+    "keywords": [
+      "enterprise"
+    ]
+  },
+  {
+    "subjectCode": "41905",
+    "keywords": [
+      "environment",
+      "linux",
+      "virtualisation"
+    ]
+  },
+  {
+    "subjectCode": "48371",
+    "keywords": [
+      "equations",
+      "matrix"
+    ]
+  },
+  {
+    "subjectCode": "48320",
+    "keywords": [
+      "estimation"
+    ]
+  },
+  {
+    "subjectCode": "48850",
+    "keywords": [
+      "evolution"
+    ]
+  },
+  {
+    "subjectCode": "41024",
+    "keywords": [
+      "exploration"
+    ]
+  },
+  {
+    "subjectCode": "41166",
+    "keywords": [
+      "expressions",
+      "printing",
+      "solidworks"
+    ]
+  },
+  {
+    "subjectCode": "42724",
+    "keywords": [
+      "fabrication design"
+    ]
+  },
+  {
+    "subjectCode": "48330",
+    "keywords": [
+      "failure",
+      "mechanics",
+      "nature",
+      "settlement",
+      "soil",
+      "soils"
+    ]
+  },
+  {
+    "subjectCode": "42043",
+    "keywords": [
+      "filtering",
+      "localization",
+      "modeling"
+    ]
+  },
+  {
+    "subjectCode": "48250",
+    "keywords": [
+      "financial",
+      "pricing",
+      "supply"
+    ]
+  },
+  {
+    "subjectCode": "48641",
+    "keywords": [
+      "fluid"
+    ]
+  },
+  {
+    "subjectCode": "32558",
+    "keywords": [
+      "future trends"
+    ]
+  },
+  {
+    "subjectCode": "31248",
+    "keywords": [
+      "game",
+      "games",
+      "real world",
+      "shaders"
+    ]
+  },
+  {
+    "subjectCode": "42824",
+    "keywords": [
+      "health",
+      "induction",
+      "limitations",
+      "vibration"
+    ]
+  },
+  {
+    "subjectCode": "48310",
+    "keywords": [
+      "information systems"
+    ]
+  },
+  {
+    "subjectCode": "48441",
+    "keywords": [
+      "input output"
+    ]
+  },
+  {
+    "subjectCode": "49026",
+    "keywords": [
+      "institutional"
+    ]
+  },
+  {
+    "subjectCode": "49003",
+    "keywords": [
+      "international"
+    ]
+  },
+  {
+    "subjectCode": "32405",
+    "keywords": [
+      "interviewing",
+      "qualitative"
+    ]
+  },
+  {
+    "subjectCode": "49102",
+    "keywords": [
+      "investment"
+    ]
+  },
+  {
+    "subjectCode": "48540",
+    "keywords": [
+      "it",
+      "mathematics"
+    ]
+  },
+  {
+    "subjectCode": "41080",
+    "keywords": [
+      "languages"
+    ]
+  },
+  {
+    "subjectCode": "41165",
+    "keywords": [
+      "laser",
+      "materials"
+    ]
+  },
+  {
+    "subjectCode": "420046",
+    "keywords": [
+      "linear regression"
+    ]
+  },
+  {
+    "subjectCode": "41889",
+    "keywords": [
+      "loops"
+    ]
+  },
+  {
+    "subjectCode": "49306",
+    "keywords": [
+      "management systems",
+      "operations management",
+      "quality operations",
+      "systems following"
+    ]
+  },
+  {
+    "subjectCode": "31489",
+    "keywords": [
+      "manager",
+      "material access",
+      "project manager",
+      "sensitive material"
+    ]
+  },
+  {
+    "subjectCode": "48621",
+    "keywords": [
+      "manufacturing"
+    ]
+  },
+  {
+    "subjectCode": "48360",
+    "keywords": [
+      "mechanisms",
+      "stabilisation"
+    ]
+  },
+  {
+    "subjectCode": "41172",
+    "keywords": [
+      "metrics"
+    ]
+  },
+  {
+    "subjectCode": "41903",
+    "keywords": [
+      "networking",
+      "science"
+    ]
+  },
+  {
+    "subjectCode": "320513",
+    "keywords": [
+      "neural networks"
+    ]
+  },
+  {
+    "subjectCode": "48560",
+    "keywords": [
+      "nonlinear"
+    ]
+  },
+  {
+    "subjectCode": "48230",
+    "keywords": [
+      "oral communication",
+      "teamwork"
+    ]
+  },
+  {
+    "subjectCode": "48433",
+    "keywords": [
+      "patterns",
+      "real time",
+      "time systems"
+    ]
+  },
+  {
+    "subjectCode": "48210",
+    "keywords": [
+      "people",
+      "public"
+    ]
+  },
+  {
+    "subjectCode": "48651",
+    "keywords": [
+      "power cycles"
+    ]
+  },
+  {
+    "subjectCode": "49025",
+    "keywords": [
+      "productivity"
+    ]
+  },
+  {
+    "subjectCode": "31482",
+    "keywords": [
+      "professional career"
+    ]
+  },
+  {
+    "subjectCode": "48121",
+    "keywords": [
+      "professional development"
+    ]
+  },
+  {
+    "subjectCode": "41019",
+    "keywords": [
+      "prototypes"
+    ]
+  },
+  {
+    "subjectCode": "41170",
+    "keywords": [
+      "quantum"
+    ]
+  },
+  {
+    "subjectCode": "49257",
+    "keywords": [
+      "raster"
+    ]
+  },
+  {
+    "subjectCode": "42909",
+    "keywords": [
+      "reflective observation"
+    ]
+  },
+  {
+    "subjectCode": "41115",
+    "keywords": [
+      "reflective practice"
+    ]
+  },
+  {
+    "subjectCode": "49027",
+    "keywords": [
+      "regression"
+    ]
+  },
+  {
+    "subjectCode": "41073",
+    "keywords": [
+      "sfia",
+      "sfia framework"
+    ]
+  },
+  {
+    "subjectCode": "42912",
+    "keywords": [
+      "society"
+    ]
+  },
+  {
+    "subjectCode": "48610",
+    "keywords": [
+      "solid"
+    ]
+  },
+  {
+    "subjectCode": "31265",
+    "keywords": [
+      "stakeholders"
+    ]
+  },
+  {
+    "subjectCode": "48362",
+    "keywords": [
+      "statistical"
+    ]
+  },
+  {
+    "subjectCode": "48270",
+    "keywords": [
+      "swot"
+    ]
+  },
+  {
+    "subjectCode": "41071",
+    "keywords": [
+      "swot analyses",
+      "writing reflections"
+    ]
+  },
+  {
+    "subjectCode": "48660",
+    "keywords": [
+      "system characteristics"
+    ]
+  },
+  {
+    "subjectCode": "41189",
+    "keywords": [
+      "systems complex"
+    ]
+  },
+  {
+    "subjectCode": "42093",
+    "keywords": [
+      "systems control"
+    ]
+  },
+  {
+    "subjectCode": "48640",
+    "keywords": [
+      "translation"
+    ]
+  },
+  {
+    "subjectCode": "31260",
+    "keywords": [
+      "usability"
+    ]
+  },
+  {
+    "subjectCode": "49115",
+    "keywords": [
+      "vision"
+    ]
+  }
+]

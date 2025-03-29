@@ -1,0 +1,71 @@
+from os import linesep
+import sys
+from flask import Flask, json, jsonify
+from models import collaborative, content_based 
+from utilities import database as db
+
+
+myapp = Flask(__name__)
+
+recommender = content_based.Recommender()
+
+ratings_based_recommender = collaborative.RatingsModel()
+# ratings_based_recommender.train_model()
+
+@myapp.route('/all/<user_id>')
+def get_recommendations(user_id):
+    # So dumb and ineffficent like everything else in this codebase
+    # build_user_ratings_file()      
+    
+    # Subject recommendations by comparing user with similar users
+    recommendations = ratings_based_recommender.predict_ratings_for_all_users(user_id)
+
+    # Subject recommendations based on interest
+    recommendations.extend(recommender.get_student_recommendation(user_id))
+    print(recommendations)
+    # Add popular subjects if required
+    if len(recommendations) < 20:
+      recommendations.extend(ratings_based_recommender.get_popular_subjects(user_id))
+
+    return jsonify(recommendations)
+
+@myapp.route('/predictions/<user_id>')
+def get_prediction_based(user_id):
+  recommendations = ratings_based_recommender.predict_ratings_for_all_users(user_id)  
+  print(recommendations)
+  return jsonify(recommendations)
+@myapp.route('/interests/<user_id>')
+def get_interests_based(user_id):
+  recommendations = recommender.get_student_recommendation((user_id))
+  print(recommendations)
+  return jsonify(recommendations)
+
+@myapp.route('/popular/<user_id>')
+def get_popular_subjects(user_id):
+  recommendations = ratings_based_recommender.get_popular_subjects(user_id)  
+  print()
+  print(recommendations)
+  print()
+  return jsonify(recommendations)
+
+def build_user_ratings_file():
+    from utilities import database as db
+    userratings = db.get_completed_subjects()
+    lines = []
+    for r in userratings:
+      try:
+        lines.append(f"{r['UserId']},{r['SubjectId']},{r['Score']}\n")
+      except:
+        print(lines[-1])
+    with open('data/ratings-model-train-features.csv', 'w') as f:
+        f.writelines(lines)
+    
+myapp.run(
+  port=8000,
+  debug=True
+)
+
+
+
+    content_recommends = recommender.get_student_recommendation(user_id)
+    recommendations.extend(sub for sub in content_recommends if sub not in recommendations)
